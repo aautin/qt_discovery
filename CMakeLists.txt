@@ -1,15 +1,18 @@
 cmake_minimum_required(VERSION 3.16)
 project(HelloQt LANGUAGES CXX)
 
-# Require C++17
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find Qt Widgets module
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+# activer les helpers Qt
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
-# Add executable
+# générer compile_commands.json pour IntelliSense/clangd
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+find_package(Qt5 REQUIRED COMPONENTS Widgets)
+
 add_executable(HelloQt main.cpp)
-
-# Link Qt libraries
-target_link_libraries(HelloQt PRIVATE Qt6::Widgets)
+target_link_libraries(HelloQt PRIVATE Qt5::Widgets)
