@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     ninja-build \
     libgl1-mesa-dev \
     libopengl-dev \
+    libxkbcommon-dev \
+    libvulkan-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace

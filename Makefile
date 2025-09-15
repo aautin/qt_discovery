@@ -2,7 +2,7 @@ CONTAINER=qt_discovery
 EXECUTABLE=HelloQt
 
 
-.PHONY: all install container project run rmcontainer rmproject rm re
+.PHONY: all install container project run rmcontainer rmproject rm re redeploy
 
 all: container project run
 
@@ -25,8 +25,9 @@ rmcontainer:
 	docker rmi $(CONTAINER)
 
 rmproject:
-	rm -rf build
+	sudo rm -rf build
 
 rm: rmcontainer rmproject
 
 re: rm all
+redeploy: project run
