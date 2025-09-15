@@ -12,7 +12,7 @@ set(CMAKE_AUTORCC ON)
 # générer compile_commands.json pour IntelliSense/clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_executable(HelloQt main.cpp)
-target_link_libraries(HelloQt PRIVATE Qt5::Widgets)
+target_link_libraries(HelloQt PRIVATE Qt6::Widgets)
