@@ -15,8 +15,8 @@ container:
 	docker build -t $(CONTAINER) .
 
 project:
-	docker run --rm -v "$$(pwd)":/workspace $(CONTAINER) cmake -S . -B build -G Ninja
-	docker run --rm -v "$$(pwd)":/workspace $(CONTAINER) cmake --build build
+	docker run --rm -e DISPLAY=$$(DISPLAY) -v "$$(pwd)":/workspace $(CONTAINER) cmake -S . -B build -G Ninja
+	docker run --rm -e DISPLAY=$$(DISPLAY) -v "$$(pwd)":/workspace $(CONTAINER) cmake --build build
 
 run:
 	./build/$(EXECUTABLE)

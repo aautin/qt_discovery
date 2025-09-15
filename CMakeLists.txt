@@ -14,5 +14,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-add_executable(HelloQt main.cpp)
+file(GLOB_RECURSE PROJECT_SOURCES
+	CONFIGURE_DEPENDS
+	"main.cpp"
+	"src/*.cpp"
+)
+
+add_executable(HelloQt ${PROJECT_SOURCES})
+target_include_directories(HelloQt PRIVATE src src/services src/widgets)
 target_link_libraries(HelloQt PRIVATE Qt6::Widgets)
